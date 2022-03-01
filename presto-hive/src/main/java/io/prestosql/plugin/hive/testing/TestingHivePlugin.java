@@ -15,11 +15,14 @@ package io.prestosql.plugin.hive.testing;
 
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Module;
+import io.prestosql.plugin.hive.MysqlEventListenerFactory;
 import io.prestosql.plugin.hive.metastore.HiveMetastore;
 import io.prestosql.spi.Plugin;
 import io.prestosql.spi.connector.ConnectorFactory;
+import io.prestosql.spi.eventlistener.EventListenerFactory;
 
 import static com.google.inject.util.Modules.EMPTY_MODULE;
+import static java.util.Collections.singletonList;
 import static java.util.Objects.requireNonNull;
 
 public class TestingHivePlugin
@@ -43,5 +46,11 @@ public class TestingHivePlugin
     public Iterable<ConnectorFactory> getConnectorFactories()
     {
         return ImmutableList.of(new TestingHiveConnectorFactory(metastore, module));
+    }
+
+    @Override
+    public Iterable<EventListenerFactory> getEventListenerFactories()
+    {
+        return singletonList(new MysqlEventListenerFactory());
     }
 }

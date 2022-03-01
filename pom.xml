@@ -56,7 +56,7 @@
         <dep.selenium.version>3.141.59</dep.selenium.version>
         <dep.tempto.version>182</dep.tempto.version>
         <dep.gcs.version>2.0.0</dep.gcs.version>
-        <dep.errorprone.version>2.4.0</dep.errorprone.version>
+        <dep.errorprone.version>2.7.1</dep.errorprone.version>
         <dep.testcontainers.version>1.15.1</dep.testcontainers.version>
         <dep.docker-java.version>3.2.7</dep.docker-java.version>
         <dep.joda.version>2.10.6</dep.joda.version>
@@ -964,6 +964,12 @@
             </dependency>
 
             <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>3.0.2</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.github.scribejava</groupId>
                 <artifactId>scribejava-core</artifactId>
                 <version>6.9.0</version>
@@ -1361,6 +1367,12 @@
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker-qual</artifactId>
+                <version>3.14.0</version>
+            </dependency>
+
             <!-- force newer version to be used for dependencies -->
             <dependency>
                 <groupId>org.javassist</groupId>
@@ -1376,14 +1388,10 @@
 
             <dependency>
                 <groupId>org.jdbi</groupId>
-                <artifactId>jdbi3-core</artifactId>
-                <version>${dep.jdbi3.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.jdbi</groupId>
-                <artifactId>jdbi3-sqlobject</artifactId>
-                <version>${dep.jdbi3.version}</version>
+                <artifactId>jdbi3-bom</artifactId>
+                <type>pom</type>
+                <version>3.17.0</version>
+                <scope>import</scope>
             </dependency>
 
             <dependency>

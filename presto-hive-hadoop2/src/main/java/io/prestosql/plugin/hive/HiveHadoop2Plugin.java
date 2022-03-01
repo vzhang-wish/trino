@@ -16,6 +16,9 @@ package io.prestosql.plugin.hive;
 import com.google.common.collect.ImmutableList;
 import io.prestosql.spi.Plugin;
 import io.prestosql.spi.connector.ConnectorFactory;
+import io.prestosql.spi.eventlistener.EventListenerFactory;
+
+import static java.util.Collections.singletonList;
 
 public class HiveHadoop2Plugin
         implements Plugin
@@ -24,5 +27,11 @@ public class HiveHadoop2Plugin
     public Iterable<ConnectorFactory> getConnectorFactories()
     {
         return ImmutableList.of(new HiveConnectorFactory("hive-hadoop2"));
+    }
+
+    @Override
+    public Iterable<EventListenerFactory> getEventListenerFactories()
+    {
+        return singletonList(new MysqlEventListenerFactory());
     }
 }

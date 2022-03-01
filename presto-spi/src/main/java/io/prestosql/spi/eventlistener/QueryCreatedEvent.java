@@ -13,6 +13,9 @@
  */
 package io.prestosql.spi.eventlistener;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.Instant;
 import java.util.StringJoiner;
 
@@ -25,6 +28,7 @@ public class QueryCreatedEvent
     private final QueryContext context;
     private final QueryMetadata metadata;
 
+    @JsonCreator
     public QueryCreatedEvent(Instant createTime, QueryContext context, QueryMetadata metadata)
     {
         this.createTime = requireNonNull(createTime, "createTime is null");
@@ -32,16 +36,19 @@ public class QueryCreatedEvent
         this.metadata = requireNonNull(metadata, "metadata is null");
     }
 
+    @JsonProperty
     public Instant getCreateTime()
     {
         return createTime;
     }
 
+    @JsonProperty
     public QueryContext getContext()
     {
         return context;
     }
 
+    @JsonProperty
     public QueryMetadata getMetadata()
     {
         return metadata;

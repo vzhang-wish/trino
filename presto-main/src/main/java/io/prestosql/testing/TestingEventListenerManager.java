@@ -47,7 +47,10 @@ public class TestingEventListenerManager
     @Override
     public void addEventListenerFactory(EventListenerFactory eventListenerFactory)
     {
-        configuredEventListeners.add(eventListenerFactory.create(ImmutableMap.of()));
+        configuredEventListeners.add(eventListenerFactory.create(
+                ImmutableMap.of("mysql-event-listener.connection-url", "jdbc:mysql://localhost:3306/event_log",
+                        "mysql-event-listener.connection-user", "root",
+                        "mysql-event-listener.connection-password", "vzhang-wish")));
     }
 
     @Override

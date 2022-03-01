@@ -90,7 +90,6 @@
             <groupId>org.checkerframework</groupId>
             <artifactId>checker-qual</artifactId>
             <scope>runtime</scope>
-            <version>3.5.0</version>
         </dependency>
 
         <!-- Presto SPI -->
